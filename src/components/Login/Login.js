@@ -35,13 +35,11 @@ const Login = (props) => {
 
 
   useEffect(() => {
-    const identifier = setTimeout(() => {
+    
       setFormIsValid(
         emailState.isValid && passwordState.isValid
       );
-    }, 500);
-
-    return () => { clearTimeout(identifier) };
+      
     
   }, [emailState.value, passwordState.value, emailState.isValid, passwordState.isValid])
 
@@ -71,6 +69,7 @@ const Login = (props) => {
     event.preventDefault();
     props.onLogin(emailState.value, passwordState.value);
   };
+
 
   return (
     <Card className={classes.login}>
